@@ -1,0 +1,6 @@
+{
+  "name": "KiranOS | AI Business Operating System for Coaches",
+  "description": "Intelligent AI Business Operating System designed for coaches, consultants, and online businesses. Automate lead capture, qualification, onboarding, and operations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
