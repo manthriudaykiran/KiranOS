@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Compass } from 'lucide-react';
 import { HeroWorkflowVisualizer } from './HeroWorkflowVisualizer';
+import { KiranForgeLogo } from './KiranForgeLogo';
 
 interface HeroSectionProps {
   onOpenAudit: () => void;
@@ -79,6 +80,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit }) => {
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center space-y-7">
           
+          {/* Top Brand Pill with Original Kiran Forge Logo */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#030914]/90 border border-cyan-500/30 shadow-lg shadow-cyan-950/60 backdrop-blur-md">
+            <div className="w-5 h-5">
+              <KiranForgeLogo className="w-full h-full" showGlow={false} />
+            </div>
+            <span className="text-xs sm:text-sm font-semibold tracking-wide text-cyan-200">
+              Architecting Connected AI Operating Systems
+            </span>
+          </div>
+
           {/* Main Headline */}
           <div className="space-y-1 sm:space-y-2">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-['Plus_Jakarta_Sans'] leading-[1.08]">

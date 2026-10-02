@@ -1,5 +1,6 @@
 import React from 'react';
-import { Terminal, Shield, Code, Cpu, ArrowRight, CheckCircle2, User } from 'lucide-react';
+import { Shield, Code, Cpu, ArrowRight, CheckCircle2, User } from 'lucide-react';
+import { KiranForgeLogo } from './KiranForgeLogo';
 
 interface FounderSectionProps {
   onOpenAudit: () => void;
@@ -17,10 +18,11 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onOpenAudit }) =
                 <div className="absolute top-0 right-0 w-48 h-48 bg-[#2563EB]/20 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="relative z-10 space-y-4">
-                  {/* Clean Technical Avatar Block */}
-                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#2563EB] to-[#22D3EE] p-[2px] flex items-center justify-center">
-                    <div className="w-full h-full bg-[#071426] rounded-[14px] flex items-center justify-center">
-                      <Terminal className="w-9 h-9 text-[#22D3EE]" />
+                  {/* Clean Technical Avatar Block with Kiran Forge Emblem */}
+                  <div className="relative group inline-block">
+                    <div className="absolute -inset-1.5 bg-gradient-to-tr from-[#2563EB]/40 to-[#22D3EE]/40 rounded-2xl blur-md opacity-80 group-hover:opacity-100 transition-opacity" />
+                    <div className="relative w-24 h-24 rounded-2xl bg-[#030914] p-2 flex items-center justify-center border border-cyan-400/40 shadow-2xl shadow-cyan-950/90">
+                      <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]" />
                     </div>
                   </div>
 
@@ -79,7 +81,7 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onOpenAudit }) =
                   Working with coaches and teaching AI revealed a recurring pattern: Business owners do not need more AI information. They need someone who can turn AI into working business systems.
                 </p>
                 <p>
-                  That is why KiranOS exists: to connect strategic business clarity, practical AI education, and rigorous hands-on software implementation into one coherent partnership.
+                  That is why Kiran Forge exists: to connect strategic business clarity, practical AI education, and rigorous hands-on software implementation into one coherent partnership.
                 </p>
               </div>
 

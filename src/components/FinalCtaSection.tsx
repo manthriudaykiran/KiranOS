@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck, Clock, Sparkles } from 'lucide-react';
+import { KiranForgeLogo } from './KiranForgeLogo';
 
 interface FinalCtaSectionProps {
   onOpenAudit: () => void;
@@ -21,6 +22,14 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit })
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        {/* Brand Emblem */}
+        <div className="relative w-16 h-16 mx-auto">
+          <div className="absolute -inset-2 bg-gradient-to-r from-[#22D3EE]/35 to-[#2563EB]/35 rounded-2xl blur-lg" />
+          <div className="relative w-full h-full rounded-2xl bg-[#030914] p-2 flex items-center justify-center border border-cyan-400/50 shadow-2xl shadow-cyan-950/90">
+            <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]" />
+          </div>
+        </div>
+
         <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#22D3EE] font-['Plus_Jakarta_Sans']">
           <span className="w-2 h-2 rounded-full bg-[#22D3EE] animate-pulse" />
           <span>Transform Fragmented Operations</span>

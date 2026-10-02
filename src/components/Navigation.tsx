@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Layers } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import { KiranForgeLogo } from './KiranForgeLogo';
 
 interface NavigationProps {
   onOpenAudit: () => void;
@@ -35,19 +36,22 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenAudit }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Zone 1: Clean Brand Wordmark */}
+          {/* Zone 1: Clean Brand Wordmark & Emblem */}
           <a
             href="#"
-            className="flex items-center gap-2.5 text-white hover:opacity-95 transition-opacity group"
-            aria-label="KiranOS Home"
+            className="flex items-center gap-3 text-white hover:opacity-95 transition-all group"
+            aria-label="Kiran Forge Home"
           >
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#2563EB] to-[#22D3EE] p-[1.5px] flex items-center justify-center">
-              <div className="w-full h-full bg-[#071426] rounded-[7px] flex items-center justify-center">
-                <Layers className="w-4 h-4 text-[#22D3EE] group-hover:scale-110 transition-transform" />
+            <div className="relative flex items-center justify-center">
+              {/* Subtle Cyan Backglow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#22D3EE]/25 to-[#2563EB]/25 rounded-xl blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#030914] p-1 flex items-center justify-center border border-cyan-500/30 shadow-lg shadow-cyan-950/80 group-hover:border-cyan-400/60 transition-colors">
+                <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] group-hover:scale-105 transition-transform" />
               </div>
             </div>
-            <span className="text-xl font-bold tracking-tight text-white font-['Plus_Jakarta_Sans']">
-              Kiran<span className="text-[#22D3EE]">OS</span>
+            <span className="text-xl sm:text-2xl font-bold tracking-tight text-white font-['Plus_Jakarta_Sans'] flex items-center gap-1.5">
+              <span>Kiran</span>
+              <span className="text-[#22D3EE]">Forge</span>
             </span>
           </a>
 

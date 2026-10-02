@@ -12,6 +12,7 @@ import {
   TrendingUp,
   FileCheck
 } from 'lucide-react';
+import { KiranForgeLogo } from './KiranForgeLogo';
 
 interface AuditBookingModalProps {
   isOpen: boolean;
@@ -57,17 +58,25 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
         {!isSubmitted ? (
           <div>
             {/* Modal Header */}
-            <div className="space-y-1.5 pb-5 border-b border-slate-100">
-              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#2563EB]">
-                <Clock className="w-3.5 h-3.5" />
-                <span>30-Minute Business-First Session</span>
+            <div className="flex items-start gap-4 pb-5 border-b border-slate-100">
+              <div className="relative shrink-0">
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#22D3EE]/25 to-[#2563EB]/25 rounded-xl blur-sm" />
+                <div className="relative w-12 h-12 rounded-xl bg-[#030914] p-1.5 flex items-center justify-center border border-cyan-500/40 shadow-lg shadow-cyan-950/70">
+                  <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
+                </div>
               </div>
-              <h3 className="text-2xl font-extrabold text-[#111827] font-['Plus_Jakarta_Sans']">
-                Book Your Free AI Strategy Call
-              </h3>
-              <p className="text-xs sm:text-sm text-slate-500">
-                Answer 3 quick questions to help us prepare your custom AI Opportunity Map before the call.
-              </p>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#2563EB]">
+                  <Clock className="w-3.5 h-3.5" />
+                  <span>30-Minute Business-First Session</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-[#111827] font-['Plus_Jakarta_Sans']">
+                  Book Your Free AI Strategy Call
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-500">
+                  Answer 3 quick questions to help us prepare your custom AI Opportunity Map before the call.
+                </p>
+              </div>
             </div>
 
             {/* Step Progress Bar */}

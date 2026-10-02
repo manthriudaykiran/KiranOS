@@ -1,5 +1,6 @@
 import React from 'react';
-import { Layers, ArrowUpRight, Mail, MapPin, Globe } from 'lucide-react';
+import { ArrowUpRight, Mail, MapPin, Globe } from 'lucide-react';
+import { KiranForgeLogo } from './KiranForgeLogo';
 
 interface FooterProps {
   onOpenAudit: () => void;
@@ -12,14 +13,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800/80">
           {/* Brand & Positioning */}
           <div className="lg:col-span-2 space-y-4">
-            <a href="#" className="flex items-center gap-2.5 text-white">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#2563EB] to-[#22D3EE] p-[1.5px] flex items-center justify-center">
-                <div className="w-full h-full bg-[#071426] rounded-[7px] flex items-center justify-center">
-                  <Layers className="w-4 h-4 text-[#22D3EE]" />
+            <a href="#" className="flex items-center gap-3 text-white group">
+              <div className="relative flex items-center justify-center">
+                <div className="absolute -inset-1 bg-gradient-to-r from-[#22D3EE]/25 to-[#2563EB]/25 rounded-xl blur-md opacity-60 group-hover:opacity-100 transition-opacity" />
+                <div className="relative w-11 h-11 rounded-xl bg-[#030914] p-1.5 flex items-center justify-center border border-cyan-500/30 shadow-lg shadow-cyan-950/80 group-hover:border-cyan-400/60 transition-colors">
+                  <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_10px_rgba(34,211,238,0.5)] group-hover:scale-105 transition-transform" />
                 </div>
               </div>
-              <span className="text-xl font-bold tracking-tight text-white font-['Plus_Jakarta_Sans']">
-                Kiran<span className="text-[#22D3EE]">OS</span>
+              <span className="text-2xl font-bold tracking-tight text-white font-['Plus_Jakarta_Sans'] flex items-center gap-1.5">
+                <span>Kiran</span>
+                <span className="text-[#22D3EE]">Forge</span>
               </span>
             </a>
 
@@ -168,7 +171,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
         {/* Bottom Bar: Copyright & Legal */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            © {new Date().getFullYear()} KiranOS. All rights reserved. One Business. One Connected AI Operating System.
+            © {new Date().getFullYear()} Kiran Forge. All rights reserved. One Business. One Connected AI Operating System.
           </div>
 
           <div className="flex items-center gap-6">

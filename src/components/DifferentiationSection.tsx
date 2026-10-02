@@ -68,7 +68,7 @@ export const DifferentiationSection: React.FC<DifferentiationSectionProps> = ({ 
                   Our Engineering Model
                 </span>
                 <h3 className="text-xl font-bold text-white font-['Plus_Jakarta_Sans']">
-                  KiranOS Implementation
+                  Kiran Forge Implementation
                 </h3>
               </div>
               <div className="w-9 h-9 rounded-full bg-[#2563EB]/20 border border-[#2563EB]/40 flex items-center justify-center text-[#22D3EE]">
