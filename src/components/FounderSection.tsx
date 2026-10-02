@@ -1,6 +1,5 @@
 import React from 'react';
-import { Shield, Code, Cpu, ArrowRight, CheckCircle2, User } from 'lucide-react';
-import { KiranForgeLogo } from './KiranForgeLogo';
+import { Terminal, Shield, Code, Cpu, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface FounderSectionProps {
   onOpenAudit: () => void;
@@ -18,11 +17,10 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onOpenAudit }) =
                 <div className="absolute top-0 right-0 w-48 h-48 bg-[#2563EB]/20 rounded-full blur-2xl pointer-events-none" />
 
                 <div className="relative z-10 space-y-4">
-                  {/* Clean Technical Avatar Block with Kiran Forge Emblem */}
-                  <div className="relative group inline-block">
-                    <div className="absolute -inset-1.5 bg-gradient-to-tr from-[#2563EB]/40 to-[#22D3EE]/40 rounded-2xl blur-md opacity-80 group-hover:opacity-100 transition-opacity" />
-                    <div className="relative w-24 h-24 rounded-2xl bg-[#030914] p-2 flex items-center justify-center border border-cyan-400/40 shadow-2xl shadow-cyan-950/90">
-                      <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]" />
+                  {/* Clean Technical Avatar Block */}
+                  <div className="w-20 h-20 rounded-2xl bg-gradient-to-tr from-[#2563EB] to-[#22D3EE] p-[2px] flex items-center justify-center">
+                    <div className="w-full h-full bg-[#071426] rounded-[14px] flex items-center justify-center">
+                      <Terminal className="w-9 h-9 text-[#22D3EE]" />
                     </div>
                   </div>
 
@@ -38,11 +36,11 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onOpenAudit }) =
                   <div className="space-y-2 pt-2 border-t border-slate-800 text-xs text-slate-300">
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#22D3EE] shrink-0" />
-                      <span>10+ Years Enterprise Software Experience</span>
+                      <span>10+ Years Complex Software & Systems Engineering</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#22D3EE] shrink-0" />
-                      <span>Specialized in AI Agents & Custom Workflows</span>
+                      <span>Specialized in AI Operating Systems & Workflow Automation</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle2 className="w-4 h-4 text-[#22D3EE] shrink-0" />
@@ -51,13 +49,13 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onOpenAudit }) =
                   </div>
 
                   <div className="pt-2 text-[11px] font-mono text-slate-400 bg-slate-900 p-2.5 rounded-lg border border-slate-800">
-                    mudaykiran.8801@gmail.com · Hyderabad / Global
+                    mudaykiran.8801@gmail.com · Hyderabad / Global Deployment
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Founder Narrative */}
+            {/* Right Column: Founder Narrative from Prompt */}
             <div className="lg:col-span-7 space-y-5">
               <div>
                 <span className="text-xs font-semibold tracking-wider uppercase text-[#2563EB] font-['Plus_Jakarta_Sans']">
@@ -66,22 +64,22 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onOpenAudit }) =
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#111827] font-['Plus_Jakarta_Sans'] tracking-tight mt-1 leading-tight">
                   Built by an Engineer.{' '}
                   <br />
-                  Designed for Business Outcomes.
+                  Focused on Recruitment Operations.
                 </h2>
               </div>
 
               <div className="space-y-4 text-sm sm:text-base text-[#475569] leading-relaxed">
                 <p>
-                  I bring more than a decade of software industry experience working with complex systems, engineering processes, and technology-driven environments.
+                  Kiran Forge was created around a simple belief: Businesses do not need more disconnected AI tools. They need well-designed operating systems.
                 </p>
                 <p>
-                  My work focuses squarely on practical AI, autonomous agents, workflow automation, and custom full-stack applications built to solve operational bottlenecks.
+                  With more than a decade of experience in software, engineering, testing and complex technical systems, the focus is now on applying practical AI, automation and custom software to real operational problems.
                 </p>
                 <p className="bg-blue-50/80 border-l-4 border-[#2563EB] p-4 text-[#111827] font-medium rounded-r-xl">
-                  Working with coaches and teaching AI revealed a recurring pattern: Business owners do not need more AI information. They need someone who can turn AI into working business systems.
+                  For staffing and recruitment firms, that means studying the complete recruiting workflow, identifying repetitive work and building connected systems that support recruiters from requirement intake to placement.
                 </p>
-                <p>
-                  That is why Kiran Forge exists: to connect strategic business clarity, practical AI education, and rigorous hands-on software implementation into one coherent partnership.
+                <p className="font-semibold text-slate-900">
+                  The technology is important. The business workflow comes first.
                 </p>
               </div>
 
@@ -90,7 +88,7 @@ export const FounderSection: React.FC<FounderSectionProps> = ({ onOpenAudit }) =
                   onClick={onOpenAudit}
                   className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-all shadow-sm"
                 >
-                  <span>Schedule a Direct Systems Audit</span>
+                  <span>Book a Recruitment Workflow Audit</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </div>

@@ -5,18 +5,18 @@ export const TrustProofBar: React.FC = () => {
   const trustPoints = [
     {
       icon: Award,
-      title: 'Tested on 480K+ Learners',
-      subtitle: 'Battle-tested under real production traffic before client deployment'
+      title: 'One Staffing Firm. One Operating System.',
+      subtitle: 'Connects the full recruitment journey from intake to placement'
     },
     {
       icon: Cpu,
-      title: 'At Half the Traditional Cost',
-      subtitle: 'Standardized productized modules eliminate custom agency bloat'
+      title: 'AI Handles the Repetitive Work',
+      subtitle: 'Recruiters focus on candidate relationships, trust, and judgment'
     },
     {
       icon: Wrench,
-      title: 'Voice, Content & Sales Workflows',
-      subtitle: 'Pre-engineered engines ready to plug into your coaching model'
+      title: 'Works With Your Existing Stack',
+      subtitle: 'Connects ATS, CRM, calendars, and candidate communication channels'
     },
     {
       icon: Globe2,

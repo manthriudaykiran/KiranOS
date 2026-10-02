@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { KiranForgeLogo } from './KiranForgeLogo';
+import { Menu, X, Layers } from 'lucide-react';
 
 interface NavigationProps {
   onOpenAudit: () => void;
@@ -36,22 +35,19 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenAudit }) => {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Zone 1: Clean Brand Wordmark & Emblem */}
+          {/* Zone 1: Clean Brand Wordmark */}
           <a
             href="#"
-            className="flex items-center gap-3 text-white hover:opacity-95 transition-all group"
+            className="flex items-center gap-2.5 text-white hover:opacity-95 transition-opacity group"
             aria-label="Kiran Forge Home"
           >
-            <div className="relative flex items-center justify-center">
-              {/* Subtle Cyan Backglow */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#22D3EE]/25 to-[#2563EB]/25 rounded-xl blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#030914] p-1 flex items-center justify-center border border-cyan-500/30 shadow-lg shadow-cyan-950/80 group-hover:border-cyan-400/60 transition-colors">
-                <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_8px_rgba(34,211,238,0.5)] group-hover:scale-105 transition-transform" />
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-[#2563EB] to-[#22D3EE] p-[1.5px] flex items-center justify-center">
+              <div className="w-full h-full bg-[#071426] rounded-[7px] flex items-center justify-center">
+                <Layers className="w-4 h-4 text-[#22D3EE] group-hover:scale-110 transition-transform" />
               </div>
             </div>
-            <span className="text-xl sm:text-2xl font-bold tracking-tight text-white font-['Plus_Jakarta_Sans'] flex items-center gap-1.5">
-              <span>Kiran</span>
-              <span className="text-[#22D3EE]">Forge</span>
+            <span className="text-xl font-bold tracking-tight text-white font-['Plus_Jakarta_Sans']">
+              Kiran <span className="text-[#22D3EE]">Forge</span>
             </span>
           </a>
 
@@ -68,13 +64,13 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenAudit }) => {
             ))}
           </nav>
 
-          {/* Zone 3: Primary Action - Exactly "Book a Free Call" with gradient button from screenshot */}
+          {/* Zone 3: Primary Action - Exactly matching prompt requirements */}
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={onOpenAudit}
-              className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-sm hover:shadow-md hover:shadow-emerald-900/20 whitespace-nowrap active:scale-[0.98] cursor-pointer"
+              className="inline-flex items-center justify-center px-5 py-2.5 text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-sm hover:shadow-md hover:shadow-emerald-900/20 whitespace-nowrap active:scale-[0.98] cursor-pointer"
             >
-              Book a Free Call
+              Book My Recruitment Workflow Audit
             </button>
           </div>
 
@@ -82,9 +78,9 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenAudit }) => {
           <div className="flex sm:hidden items-center gap-2">
             <button
               onClick={onOpenAudit}
-              className="px-3.5 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] rounded-lg"
+              className="px-3 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] rounded-lg"
             >
-              Book Call
+              Book Audit
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

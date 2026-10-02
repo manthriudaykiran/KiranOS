@@ -36,31 +36,31 @@ export default function App() {
       <Navigation onOpenAudit={handleOpenAudit} />
 
       <main>
-        {/* 2. Hero Section with Interactive 9-Stage Workflow Visualizer */}
+        {/* 2. Hero Section with Interactive Recruitment Workflow Visualizer */}
         <HeroSection onOpenAudit={handleOpenAudit} />
 
         {/* 3. Trust / Proof Bar */}
         <TrustProofBar />
 
-        {/* 4. Business Problems Section */}
+        {/* 4. Recruitment Operational Bottlenecks Section */}
         <ProblemSection />
 
-        {/* 5. Coaching AI Operating System (8 Connected Engines) */}
+        {/* 5. AI Recruitment Operating System (12 Connected Modules) */}
         <FlagshipOperatingSystem />
 
-        {/* 6. Productized AI Systems */}
+        {/* 6. Productized Recruitment AI Systems */}
         <ProductizedSystems onOpenAudit={handleOpenAudit} />
 
         {/* 7. How It Works / Methodology (MAP → BUILD → CONNECT → SCALE) */}
         <MethodologySection onOpenAudit={handleOpenAudit} />
 
-        {/* 8. Workflow & System Architecture Blueprint */}
+        {/* 8. Recruitment Workflow & System Architecture Blueprint */}
         <ArchitectureSection />
 
-        {/* 9. Signature Audit (AI Growth & Operations Audit + Opportunity Map) */}
+        {/* 9. AI Recruitment Workflow Audit + Opportunity Map */}
         <SignatureAuditSection onOpenAudit={handleOpenAudit} />
 
-        {/* 10. Case Studies Section (Pilot, Internal Build, Prototype) */}
+        {/* 10. Recruitment Prototypes & Systems Proof */}
         <CaseStudiesSection onOpenAudit={handleOpenAudit} />
 
         {/* 11. Why Us / Differentiation (Agency vs KiranOS Implementation Partner) */}

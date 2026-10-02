@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import { 
-  Zap, 
-  Clock, 
-  TrendingUp, 
-  ShieldCheck, 
   CheckCircle2, 
-  Sliders, 
   ArrowRight,
-  Sparkles
+  Clock,
+  Layers,
+  Search,
+  Calendar
 } from 'lucide-react';
 
 interface RoiCalculatorSectionProps {
@@ -15,31 +13,32 @@ interface RoiCalculatorSectionProps {
 }
 
 export const RoiCalculatorSection: React.FC<RoiCalculatorSectionProps> = ({ onOpenAudit }) => {
-  const [monthlyLeads, setMonthlyLeads] = useState<number>(250);
-  const [supportHoursPerWeek, setSupportHoursPerWeek] = useState<number>(12);
-  const [monthlyConsults, setMonthlyConsults] = useState<number>(30);
+  const [openRequirements, setOpenRequirements] = useState<number>(15);
+  const [resumesScreened, setResumesScreened] = useState<number>(300);
+  const [interviewsCoordinated, setInterviewsCoordinated] = useState<number>(45);
 
-  // Transparent, honest operational time calculation
-  // Follow-up & qualification: approx 10 minutes per lead manually vs 0 minutes automated
-  const leadHoursSavedPerMonth = Math.round((monthlyLeads * 8) / 60);
-  // Support FAQs: approx 65% automated
-  const supportHoursSavedPerMonth = Math.round(supportHoursPerWeek * 4 * 0.65);
-  // Post-consult admin: approx 30 minutes saved per consult
-  const consultHoursSavedPerMonth = Math.round((monthlyConsults * 25) / 60);
+  // Honest, qualitative operational time estimate
+  // Manual resume parsing/screening: approx 6-8 minutes saved per profile with structured context
+  const screeningHoursSaved = Math.round((resumesScreened * 6) / 60);
+  // Interview coordination: approx 20 minutes back-and-forth per interview round
+  const schedulingHoursSaved = Math.round((interviewsCoordinated * 20) / 60);
+  // Requirement intake & ATS manual updating: approx 3 hours per open job requirement
+  const atsAdminHoursSaved = Math.round(openRequirements * 2.5);
 
-  const totalMonthlyHoursReclaimed = leadHoursSavedPerMonth + supportHoursSavedPerMonth + consultHoursSavedPerMonth;
+  const totalMonthlyHoursReclaimed = screeningHoursSaved + schedulingHoursSaved + atsAdminHoursSaved;
 
+  // The 10 qualitative outcomes required by the prompt
   const qualitativeOutcomes = [
-    { title: 'Sub-2-Minute Lead Response', desc: 'No leads cooling off during evenings or weekends while ad spend is running.' },
-    { title: 'Fewer Missed Inbound Leads', desc: 'Eliminate human drop-off from unread Instagram DMs, form errors, or buried chats.' },
-    { title: 'Reduced Repetitive Typing', desc: 'Free your team from answering the same onboarding and payment questions 50x daily.' },
-    { title: 'Relentless Follow-Up Discipline', desc: 'Every registered prospect receives structured multi-day nurture without staff fatigue.' },
-    { title: 'Higher Webinar Show-Up Rates', desc: 'Frictionless calendar links and 15-minute voice reminders bring registered buyers into the room.' },
-    { title: 'Instant Zero-Lag Onboarding', desc: 'Paying clients receive immediate LMS credentials, invoices, and community invites.' },
-    { title: 'Radically Lower Admin Overhead', desc: 'Scale client intake from 10 to 100 per month without ballooning your virtual assistant payroll.' },
-    { title: 'Actionable Sales Call Visibility', desc: 'Every consultation call parsed for objections, intent signals, and CRM task updates.' },
-    { title: '24/7 Private Student Support', desc: 'Students unblocked at midnight through verified, grounded knowledge retrieval.' },
-    { title: 'Unified Business Intelligence', desc: 'Start every morning with an executive summary of pipeline health, ad spend, and delivery.' }
+    { title: 'Faster Candidate Response', desc: 'Engage qualified talent immediately when interest is highest, rather than lagging by hours.' },
+    { title: 'More Consistent Follow-Up', desc: 'Maintain candidate responsiveness through structured outreach cadences across all open roles.' },
+    { title: 'Less Repetitive Administration', desc: 'Free recruiters from recurring status messages, screening questionnaires, and scheduling coordination.' },
+    { title: 'Better Pipeline Visibility', desc: 'Real-time pipeline movement across requirements without chasing recruiters for manual updates.' },
+    { title: 'Fewer Manual System Updates', desc: 'Automate status stage movement and interview notes across your ATS, CRM, and databases.' },
+    { title: 'More Structured Resume Review', desc: 'Recruiters review standardized candidate context cards instead of parsing unstructured documents.' },
+    { title: 'Better Interview Coordination', desc: 'Eliminate multi-day scheduling delays between candidates, recruiters, and hiring managers.' },
+    { title: 'Clearer Operational Reporting', desc: 'Leadership stays informed with automated daily recruitment intelligence and bottleneck alerts.' },
+    { title: 'Reduced Dependence on Memory', desc: 'Prevent candidate drops by embedding systematic reminders and follow-up loops into workflows.' },
+    { title: 'More Time for Relationships', desc: 'Recruiters focus their time where human judgment counts: candidate trust, client alignment, and placements.' }
   ];
 
   return (
@@ -48,13 +47,15 @@ export const RoiCalculatorSection: React.FC<RoiCalculatorSectionProps> = ({ onOp
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <span className="text-xs font-semibold tracking-wider uppercase text-[#2563EB] font-['Plus_Jakarta_Sans']">
-            Operational Transformation
+            Operational Outcomes
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-[#111827] font-['Plus_Jakarta_Sans'] leading-tight">
-            Automate Work. Protect Time. Scale Smarter.
+            Less Administrative Work.{' '}
+            <br className="hidden sm:block" />
+            More Recruiting Capacity.
           </h2>
           <p className="text-base sm:text-lg text-[#475569] leading-relaxed">
-            The goal of an AI Operating System is not novelty—it is reclaiming founder focus, shortening response cycles, and creating clean operational leverage.
+            The purpose of an AI Recruitment Operating System is to remove repetitive clerical friction so recruiters can dedicate their full attention to candidate judgment, client relationships, and closed placements.
           </p>
         </div>
 
@@ -84,79 +85,79 @@ export const RoiCalculatorSection: React.FC<RoiCalculatorSectionProps> = ({ onOp
         <div className="bg-[#071426] text-white border border-slate-800 rounded-2xl p-7 sm:p-10 shadow-xl">
           <div className="max-w-3xl mb-8">
             <span className="text-xs font-mono uppercase tracking-wider text-[#22D3EE] font-bold">
-              Interactive Time Reclaim Estimator
+              Operational Capacity Estimator
             </span>
             <h3 className="text-2xl sm:text-3xl font-bold font-['Plus_Jakarta_Sans'] mt-1">
-              Estimate Your Team’s Reclaimed Capacity
+              Estimate Your Team’s Reclaimed Recruiting Capacity
             </h3>
             <p className="text-sm text-slate-300 mt-2">
-              Adjust the sliders based on your coaching volume to see how many manual hours can be shifted from repetitive typing to high-leverage growth.
+              Adjust the sliders based on your monthly recruitment volume to estimate the administrative hours that can be shifted from manual coordination to candidate and client conversations.
             </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Sliders Area */}
             <div className="lg:col-span-7 space-y-6">
-              {/* Slider 1: Monthly Leads */}
+              {/* Slider 1: Open Requirements */}
               <div className="space-y-2">
                 <div className="flex justify-between text-xs font-medium">
-                  <span className="text-slate-300">Monthly Inbound Leads (Ads / Social / Funnels)</span>
-                  <span className="text-[#22D3EE] font-mono text-sm font-bold">{monthlyLeads} leads</span>
+                  <span className="text-slate-300">Active Monthly Job Requirements Managed</span>
+                  <span className="text-[#22D3EE] font-mono text-sm font-bold">{openRequirements} open roles</span>
+                </div>
+                <input
+                  type="range"
+                  min="2"
+                  max="60"
+                  step="1"
+                  value={openRequirements}
+                  onChange={(e) => setOpenRequirements(Number(e.target.value))}
+                  className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#2563EB]"
+                />
+                <div className="flex justify-between text-[10px] text-slate-500 font-mono">
+                  <span>2 roles</span>
+                  <span>60+ roles</span>
+                </div>
+              </div>
+
+              {/* Slider 2: Resumes Screened */}
+              <div className="space-y-2">
+                <div className="flex justify-between text-xs font-medium">
+                  <span className="text-slate-300">Resumes Screened & Evaluated Monthly</span>
+                  <span className="text-[#22D3EE] font-mono text-sm font-bold">{resumesScreened} resumes / mo</span>
                 </div>
                 <input
                   type="range"
                   min="50"
                   max="1500"
                   step="25"
-                  value={monthlyLeads}
-                  onChange={(e) => setMonthlyLeads(Number(e.target.value))}
+                  value={resumesScreened}
+                  onChange={(e) => setResumesScreened(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#2563EB]"
                 />
                 <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-                  <span>50 leads</span>
-                  <span>1,500+ leads</span>
+                  <span>50 resumes</span>
+                  <span>1,500+ resumes</span>
                 </div>
               </div>
 
-              {/* Slider 2: Repetitive Support Hours */}
+              {/* Slider 3: Interviews Coordinated */}
               <div className="space-y-2">
                 <div className="flex justify-between text-xs font-medium">
-                  <span className="text-slate-300">Weekly Hours Spent on Repetitive Student FAQs & Admin</span>
-                  <span className="text-[#22D3EE] font-mono text-sm font-bold">{supportHoursPerWeek} hrs / week</span>
+                  <span className="text-slate-300">Monthly Interviews Coordinated (Candidate / Client)</span>
+                  <span className="text-[#22D3EE] font-mono text-sm font-bold">{interviewsCoordinated} interviews / mo</span>
                 </div>
                 <input
                   type="range"
-                  min="2"
-                  max="40"
-                  step="1"
-                  value={supportHoursPerWeek}
-                  onChange={(e) => setSupportHoursPerWeek(Number(e.target.value))}
-                  className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#2563EB]"
-                />
-                <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-                  <span>2 hours</span>
-                  <span>40 hours</span>
-                </div>
-              </div>
-
-              {/* Slider 3: Sales Consultations */}
-              <div className="space-y-2">
-                <div className="flex justify-between text-xs font-medium">
-                  <span className="text-slate-300">Monthly Sales Calls / Consultations Conducted</span>
-                  <span className="text-[#22D3EE] font-mono text-sm font-bold">{monthlyConsults} calls</span>
-                </div>
-                <input
-                  type="range"
-                  min="5"
-                  max="120"
+                  min="10"
+                  max="200"
                   step="5"
-                  value={monthlyConsults}
-                  onChange={(e) => setMonthlyConsults(Number(e.target.value))}
+                  value={interviewsCoordinated}
+                  onChange={(e) => setInterviewsCoordinated(Number(e.target.value))}
                   className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#2563EB]"
                 />
                 <div className="flex justify-between text-[10px] text-slate-500 font-mono">
-                  <span>5 calls</span>
-                  <span>120 calls</span>
+                  <span>10 interviews</span>
+                  <span>200+ interviews</span>
                 </div>
               </div>
             </div>
@@ -172,22 +173,22 @@ export const RoiCalculatorSection: React.FC<RoiCalculatorSectionProps> = ({ onOp
                   ~{totalMonthlyHoursReclaimed} hrs
                 </div>
                 <div className="text-xs text-slate-400 mt-1">
-                  Reclaimed Every Month
+                  Reclaimed From Repetitive Admin Monthly
                 </div>
               </div>
 
               <div className="space-y-2 text-left text-xs text-slate-300 border-t border-slate-800 pt-3">
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Lead Follow-Up & Qualification:</span>
-                  <span className="text-emerald-400 font-mono font-medium">+{leadHoursSavedPerMonth} hrs/mo</span>
+                  <span className="text-slate-400">Structured Resume Screening:</span>
+                  <span className="text-emerald-400 font-mono font-medium">~{screeningHoursSaved} hrs/mo</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">24/7 Curriculum Support:</span>
-                  <span className="text-emerald-400 font-mono font-medium">+{supportHoursSavedPerMonth} hrs/mo</span>
+                  <span className="text-slate-400">Interview Scheduling Logistics:</span>
+                  <span className="text-emerald-400 font-mono font-medium">~{schedulingHoursSaved} hrs/mo</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-slate-400">Pre-Call & CRM Data Sync:</span>
-                  <span className="text-emerald-400 font-mono font-medium">+{consultHoursSavedPerMonth} hrs/mo</span>
+                  <span className="text-slate-400">ATS / CRM Manual Record Sync:</span>
+                  <span className="text-emerald-400 font-mono font-medium">~{atsAdminHoursSaved} hrs/mo</span>
                 </div>
               </div>
 

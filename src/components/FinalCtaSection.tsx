@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArrowRight, ShieldCheck, Clock, Sparkles } from 'lucide-react';
-import { KiranForgeLogo } from './KiranForgeLogo';
+import { ArrowRight } from 'lucide-react';
 
 interface FinalCtaSectionProps {
   onOpenAudit: () => void;
@@ -22,29 +21,21 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit })
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-        {/* Brand Emblem */}
-        <div className="relative w-16 h-16 mx-auto">
-          <div className="absolute -inset-2 bg-gradient-to-r from-[#22D3EE]/35 to-[#2563EB]/35 rounded-2xl blur-lg" />
-          <div className="relative w-full h-full rounded-2xl bg-[#030914] p-2 flex items-center justify-center border border-cyan-400/50 shadow-2xl shadow-cyan-950/90">
-            <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_12px_rgba(34,211,238,0.6)]" />
-          </div>
-        </div>
-
         <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold tracking-wider uppercase text-[#22D3EE] font-['Plus_Jakarta_Sans']">
           <span className="w-2 h-2 rounded-full bg-[#22D3EE] animate-pulse" />
           <span>Transform Fragmented Operations</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white font-['Plus_Jakarta_Sans'] leading-[1.1] text-balance">
-          Your Business Doesn’t Need More AI Tools.{' '}
+          Your Recruiters Should Recruit.{' '}
           <br className="hidden sm:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#22D3EE]">
-            It Needs a System.
+            Your Systems Should Handle the Repetition.
           </span>
         </h2>
 
         <p className="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-slate-300 leading-relaxed font-normal">
-          Discover where AI can save time, recover lost opportunities and remove repetitive work across your coaching or online business.
+          Find the repetitive workflows, communication gaps and disconnected processes slowing down your recruitment operation.
         </p>
 
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -52,7 +43,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit })
             onClick={onOpenAudit}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 text-base font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-xl shadow-blue-600/30 hover:shadow-2xl hover:shadow-emerald-900/30 active:scale-[0.98] cursor-pointer"
           >
-            <span>Book a Free AI Strategy Call</span>
+            <span>Book My Recruitment Workflow Audit</span>
             <ArrowRight className="w-5 h-5" />
           </button>
 
@@ -60,17 +51,17 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit })
             href="#case-studies"
             className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-slate-900/80 hover:bg-slate-800 rounded-xl border border-slate-700/80 transition-all cursor-pointer text-center"
           >
-            See Our Case Studies
+            See Our Prototypes
           </a>
         </div>
 
         {/* Microcopy with typographic dots */}
         <div className="pt-2 flex flex-wrap items-center justify-center gap-2 text-xs sm:text-sm text-slate-400 font-medium">
-          <span>30 Minutes</span>
+          <span>30 minutes</span>
           <span className="text-slate-600">·</span>
-          <span>Business-First</span>
+          <span>Business-first</span>
           <span className="text-slate-600">·</span>
-          <span>No Technical Preparation Required</span>
+          <span>No technical preparation required</span>
         </div>
       </div>
     </section>

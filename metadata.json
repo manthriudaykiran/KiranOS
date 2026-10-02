@@ -1,6 +1,6 @@
 {
   "name": "KiranOS | AI Business Operating System for Coaches",
-  "description": "Intelligent AI Business Operating System designed for coaches, consultants, and online businesses. Automate lead capture, qualification, onboarding, and operations.",
+  "description": "Kiran Forge designs connected AI Recruitment Operating Systems for IT staffing and recruitment firms across sourcing, screening, candidate follow-up, interviews, ATS workflows, placement and reporting.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

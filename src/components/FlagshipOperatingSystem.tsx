@@ -4,7 +4,6 @@ import {
   Zap, 
   ArrowRight, 
   CheckCircle, 
-  GitFork, 
   Database, 
   Activity, 
   Radio,
@@ -13,7 +12,7 @@ import {
 } from 'lucide-react';
 
 export const FlagshipOperatingSystem: React.FC = () => {
-  const [selectedEngineId, setSelectedEngineId] = useState<string>('lead-engine');
+  const [selectedEngineId, setSelectedEngineId] = useState<string>('client-requirement-engine');
 
   const selectedEngine = ENGINES_DATA.find((e) => e.id === selectedEngineId) || ENGINES_DATA[0];
 
@@ -26,13 +25,13 @@ export const FlagshipOperatingSystem: React.FC = () => {
         {/* Section Heading */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <span className="text-xs font-semibold tracking-wider uppercase text-[#22D3EE] font-['Plus_Jakarta_Sans']">
-            Unified Architecture
+            One Connected Architecture
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-['Plus_Jakarta_Sans'] leading-tight">
-            The Coaching AI Operating System
+            The AI Recruitment Operating System
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            One intelligent operating layer connecting your entire customer journey and business operations. All eight engines share real-time state, customer records, and predictive intelligence.
+            A connected operating layer across the complete recruitment journey — designed to reduce repetitive work while keeping recruiters in control of judgment and relationships.
           </p>
         </div>
 
@@ -40,8 +39,8 @@ export const FlagshipOperatingSystem: React.FC = () => {
         <div className="mb-10 bg-slate-900/80 border border-slate-800 rounded-xl px-5 py-3.5 flex flex-wrap items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-2 text-slate-300">
             <Database className="w-4 h-4 text-[#22D3EE]" />
-            <span className="font-semibold font-['Plus_Jakarta_Sans']">Unified State Protocol:</span>
-            <span className="text-slate-400">All 8 engines synchronize through a single centralized database & webhook bus</span>
+            <span className="font-semibold font-['Plus_Jakarta_Sans']">One Connected Operating System:</span>
+            <span className="text-slate-400">All 12 modules share continuous pipeline state, candidate dossiers, and client telemetry</span>
           </div>
           <div className="flex items-center gap-3 text-slate-400">
             <span className="flex items-center gap-1.5 text-emerald-400">
@@ -53,8 +52,8 @@ export const FlagshipOperatingSystem: React.FC = () => {
           </div>
         </div>
 
-        {/* 8 Connected Engines Visual Grid / Navigator */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2.5 mb-8">
+        {/* 12 Connected Engines Grid Navigator */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2.5 mb-8">
           {ENGINES_DATA.map((engine) => {
             const isSelected = engine.id === selectedEngineId;
             return (
@@ -70,7 +69,7 @@ export const FlagshipOperatingSystem: React.FC = () => {
                 <div>
                   <div className="flex items-center justify-between mb-2">
                     <span className={`text-[10px] font-mono font-bold ${isSelected ? 'text-white/80' : 'text-slate-500'}`}>
-                      ENGINE {engine.number}
+                      MODULE {engine.number}
                     </span>
                     <span className={`w-1.5 h-1.5 rounded-full ${isSelected ? 'bg-[#22D3EE]' : 'bg-slate-600'}`} />
                   </div>
@@ -80,7 +79,7 @@ export const FlagshipOperatingSystem: React.FC = () => {
                 </div>
                 <div className="mt-3 flex items-center gap-1 text-[10px] text-slate-400">
                   <Activity className={`w-3 h-3 ${isSelected ? 'text-white' : 'text-[#22D3EE]'}`} />
-                  <span className={isSelected ? 'text-white/90' : 'text-slate-400'}>Active</span>
+                  <span className={isSelected ? 'text-white/90' : 'text-slate-400'}>Active Module</span>
                 </div>
               </button>
             );
@@ -94,63 +93,71 @@ export const FlagshipOperatingSystem: React.FC = () => {
             <div className="lg:col-span-6 space-y-6">
               <div className="flex items-center gap-3">
                 <span className="text-xs font-mono font-bold text-[#22D3EE] bg-[#22D3EE]/10 px-2.5 py-1 rounded border border-[#22D3EE]/30">
-                  ENGINE {selectedEngine.number}
+                  MODULE {selectedEngine.number}
                 </span>
                 <span className="text-xs text-slate-400 font-medium">
                   {selectedEngine.tagline}
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-['Plus_Jakarta_Sans']">
-                {selectedEngine.name}
-              </h3>
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-['Plus_Jakarta_Sans']">
+                  {selectedEngine.name}
+                </h3>
+                <p className="mt-3 text-slate-300 text-sm sm:text-base leading-relaxed">
+                  {selectedEngine.description}
+                </p>
+              </div>
 
-              <p className="text-slate-300 text-base leading-relaxed">
-                {selectedEngine.description}
-              </p>
-
-              {/* Automated Workflows inside this engine */}
-              <div className="space-y-2.5 pt-2">
-                <h5 className="text-xs font-semibold uppercase tracking-wider text-slate-400 font-['Plus_Jakarta_Sans']">
-                  Core Automated Workflows
-                </h5>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {selectedEngine.automations.map((automation, i) => (
-                    <div key={i} className="flex items-start gap-2 text-xs text-slate-300 bg-slate-950/60 p-2.5 rounded-lg border border-slate-800/80">
-                      <CheckCircle className="w-3.5 h-3.5 text-[#22D3EE] shrink-0 mt-0.5" />
-                      <span>{automation}</span>
-                    </div>
+              {/* Connected Engines Pathway */}
+              <div className="space-y-2 pt-2 border-t border-slate-800">
+                <span className="text-xs font-mono uppercase tracking-wider text-slate-400 font-semibold block">
+                  Synchronized With Other Modules:
+                </span>
+                <div className="flex flex-wrap gap-2">
+                  {selectedEngine.connectedEngines.map((connected) => (
+                    <span
+                      key={connected}
+                      className="text-xs text-slate-300 bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700/80 flex items-center gap-1.5"
+                    >
+                      <Workflow className="w-3 h-3 text-[#22D3EE]" />
+                      <span>{connected}</span>
+                    </span>
                   ))}
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Inputs, Outputs & Cross-Engine Connectors */}
-            <div className="lg:col-span-6 space-y-5 bg-[#071426] border border-slate-800 rounded-xl p-5 sm:p-6">
+            {/* Right Column: Inputs, Outputs & Automated Tasks */}
+            <div className="lg:col-span-6 space-y-6 bg-slate-950/70 p-6 rounded-xl border border-slate-800/80">
               {/* Inputs & Outputs Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pb-5 border-b border-slate-800/80">
-                <div>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block mb-2">
-                    Ingested Inputs
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {/* Inputs */}
+                <div className="space-y-2">
+                  <span className="text-xs font-mono uppercase tracking-wider text-blue-400 font-semibold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+                    Workflow Inputs
                   </span>
-                  <ul className="space-y-1.5">
+                  <ul className="space-y-1.5 text-xs text-slate-300">
                     {selectedEngine.inputs.map((input, idx) => (
-                      <li key={idx} className="text-xs text-slate-300 flex items-center gap-1.5">
-                        <span className="w-1 h-1 rounded-full bg-[#2563EB]" />
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-slate-500 font-mono">→</span>
                         <span>{input}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-500 block mb-2">
-                    System Outputs
+                {/* Outputs */}
+                <div className="space-y-2">
+                  <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    Engine Outputs
                   </span>
-                  <ul className="space-y-1.5">
+                  <ul className="space-y-1.5 text-xs text-slate-300">
                     {selectedEngine.outputs.map((output, idx) => (
-                      <li key={idx} className="text-xs text-emerald-300 flex items-center gap-1.5">
-                        <span className="w-1 h-1 rounded-full bg-emerald-400" />
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-emerald-500 font-mono">✓</span>
                         <span>{output}</span>
                       </li>
                     ))}
@@ -158,27 +165,23 @@ export const FlagshipOperatingSystem: React.FC = () => {
                 </div>
               </div>
 
-              {/* Connected Engines Signaling */}
-              <div>
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-2.5 flex items-center gap-1.5">
-                  <Share2 className="w-3.5 h-3.5 text-[#22D3EE]" />
-                  <span>Real-Time Bi-Directional Links To:</span>
+              {/* Core Autonomous Subroutines */}
+              <div className="pt-4 border-t border-slate-800/80 space-y-2.5">
+                <span className="text-xs font-mono uppercase tracking-wider text-purple-400 font-semibold flex items-center gap-1.5">
+                  <Zap className="w-3.5 h-3.5 text-purple-400" />
+                  Automated Subroutines
                 </span>
-                <div className="flex flex-wrap gap-2">
-                  {selectedEngine.connectedEngines.map((connectedName, idx) => (
-                    <span
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300">
+                  {selectedEngine.automations.map((automation, idx) => (
+                    <div
                       key={idx}
-                      className="text-xs font-medium text-slate-200 bg-slate-900 border border-slate-700 px-3 py-1.5 rounded-lg flex items-center gap-1.5"
+                      className="bg-slate-900 px-3 py-2 rounded-lg border border-slate-800/80 flex items-center gap-2"
                     >
-                      <Workflow className="w-3 h-3 text-[#22D3EE]" />
-                      <span>{connectedName}</span>
-                    </span>
+                      <span className="w-1 h-1 rounded-full bg-[#22D3EE]" />
+                      <span className="truncate">{automation}</span>
+                    </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="pt-2 text-[11px] text-slate-500 italic">
-                * Data flows asynchronously between all connected engines without human data entry or manual handoffs.
               </div>
             </div>
           </div>

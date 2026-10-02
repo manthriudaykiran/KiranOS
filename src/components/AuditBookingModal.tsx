@@ -3,16 +3,10 @@ import {
   X, 
   ArrowRight, 
   CheckCircle2, 
-  Sparkles, 
-  ShieldCheck, 
   Clock, 
   Calendar,
-  Layers,
-  HelpCircle,
-  TrendingUp,
   FileCheck
 } from 'lucide-react';
-import { KiranForgeLogo } from './KiranForgeLogo';
 
 interface AuditBookingModalProps {
   isOpen: boolean;
@@ -21,10 +15,10 @@ interface AuditBookingModalProps {
 
 export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, onClose }) => {
   const [step, setStep] = useState<number>(1);
-  const [businessType, setBusinessType] = useState<string>('High-Ticket 1:1 Coaching');
-  const [leadVolume, setLeadVolume] = useState<string>('100 - 300 leads / month');
-  const [leadSource, setLeadSource] = useState<string>('Instagram Reels & Meta Ads');
-  const [primaryBottleneck, setPrimaryBottleneck] = useState<string>('Slow lead follow-up & missed inquiries');
+  const [businessType, setBusinessType] = useState<string>('IT Staffing & Contract Staffing');
+  const [jobVolume, setJobVolume] = useState<string>('10 - 25 open jobs / mo');
+  const [outreachChannel, setOutreachChannel] = useState<string>('LinkedIn & Job Portals');
+  const [primaryBottleneck, setPrimaryBottleneck] = useState<string>('Too much manual resume screening');
   const [name, setName] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
@@ -58,31 +52,23 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
         {!isSubmitted ? (
           <div>
             {/* Modal Header */}
-            <div className="flex items-start gap-4 pb-5 border-b border-slate-100">
-              <div className="relative shrink-0">
-                <div className="absolute -inset-1 bg-gradient-to-r from-[#22D3EE]/25 to-[#2563EB]/25 rounded-xl blur-sm" />
-                <div className="relative w-12 h-12 rounded-xl bg-[#030914] p-1.5 flex items-center justify-center border border-cyan-500/40 shadow-lg shadow-cyan-950/70">
-                  <KiranForgeLogo className="w-full h-full drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]" />
-                </div>
+            <div className="space-y-1.5 pb-5 border-b border-slate-100">
+              <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#2563EB]">
+                <Clock className="w-3.5 h-3.5" />
+                <span>30-Minute Business-First Session</span>
               </div>
-              <div className="space-y-1">
-                <div className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-[#2563EB]">
-                  <Clock className="w-3.5 h-3.5" />
-                  <span>30-Minute Business-First Session</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#111827] font-['Plus_Jakarta_Sans']">
-                  Book Your Free AI Strategy Call
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-500">
-                  Answer 3 quick questions to help us prepare your custom AI Opportunity Map before the call.
-                </p>
-              </div>
+              <h3 className="text-2xl font-extrabold text-[#111827] font-['Plus_Jakarta_Sans']">
+                Book My Recruitment Workflow Audit
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-500">
+                Answer 3 quick questions to help us prepare your custom AI Recruitment Opportunity Map before the call.
+              </p>
             </div>
 
             {/* Step Progress Bar */}
             <div className="flex items-center justify-between my-5 text-xs text-slate-400">
               <span className={`font-semibold ${step >= 1 ? 'text-[#2563EB]' : ''}`}>
-                1. Model
+                1. Operation
               </span>
               <span className="w-8 h-[1px] bg-slate-200" />
               <span className={`font-semibold ${step >= 2 ? 'text-[#2563EB]' : ''}`}>
@@ -99,14 +85,14 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
               <div className="space-y-4">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 font-['Plus_Jakarta_Sans']">
-                    What best describes your business model?
+                    What best describes your staffing & recruitment business?
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {[
-                      'High-Ticket 1:1 Coaching',
-                      'Group Mastermind & Mentorship',
-                      'Live Workshops & Cohorts',
-                      'Online Education / Hybrid Course'
+                      'IT Staffing & Contract Staffing',
+                      'Direct Hire & Technical Search',
+                      'Recruitment Agency / RPO',
+                      'Technical Talent Acquisition Firm'
                     ].map((type) => (
                       <button
                         type="button"
@@ -126,21 +112,21 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
 
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 font-['Plus_Jakarta_Sans']">
-                    Estimated monthly inbound lead volume:
+                    Active monthly job requirements managed:
                   </label>
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      'Under 100 leads / mo',
-                      '100 - 300 leads / mo',
-                      '300 - 1,000 leads / mo',
-                      '1,000+ leads / mo'
+                      'Under 10 open jobs / mo',
+                      '10 - 25 open jobs / mo',
+                      '25 - 60 open jobs / mo',
+                      '60+ open jobs / mo'
                     ].map((vol) => (
                       <button
                         type="button"
                         key={vol}
-                        onClick={() => setLeadVolume(vol)}
+                        onClick={() => setJobVolume(vol)}
                         className={`p-2.5 rounded-xl border text-center text-xs font-medium transition-all ${
-                          leadVolume === vol
+                          jobVolume === vol
                             ? 'bg-blue-50 border-[#2563EB] text-[#2563EB]'
                             : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
                         }`}
@@ -151,58 +137,83 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
                   </div>
                 </div>
 
-                <div className="pt-3 flex justify-end">
+                <div className="pt-4 flex justify-end">
                   <button
                     type="button"
                     onClick={() => setStep(2)}
                     className="inline-flex items-center gap-2 px-6 py-2.5 text-xs font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-colors shadow-sm"
                   >
-                    <span>Next: Select Friction Point</span>
+                    <span>Next: Identify Bottlenecks</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
             )}
 
-            {/* Step 2: Primary Bottleneck */}
+            {/* Step 2: Bottleneck & Sourcing */}
             {step === 2 && (
               <div className="space-y-4">
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 font-['Plus_Jakarta_Sans']">
-                    Where is the biggest operational leak right now?
+                    Primary operational bottleneck in your recruitment workflow:
                   </label>
                   <div className="space-y-2">
                     {[
-                      'Slow lead follow-up & missed inquiries',
-                      'Low webinar show-up rates & poor no-show follow-up',
-                      'Manual client onboarding & contract headaches',
-                      'Repetitive student curriculum questions draining coach time',
-                      'Disconnected tools & spreadsheet copy-pasting'
-                    ].map((b) => (
+                      'Candidates go cold / slow manual follow-up',
+                      'Too much manual resume screening before speaking to talent',
+                      'Interview coordination takes too long (repeated scheduling back-and-forth)',
+                      'ATS / CRM updates are manual & records remain fragmented',
+                      'Client requirements get lost in translation into sourcing criteria',
+                      'Recruiter administrative overload as job volume scales'
+                    ].map((issue) => (
                       <button
                         type="button"
-                        key={b}
-                        onClick={() => setPrimaryBottleneck(b)}
-                        className={`w-full p-3 rounded-xl border text-left text-xs font-semibold transition-all flex items-center justify-between ${
-                          primaryBottleneck === b
-                            ? 'bg-blue-50 border-[#2563EB] text-[#2563EB]'
+                        key={issue}
+                        onClick={() => setPrimaryBottleneck(issue)}
+                        className={`w-full p-2.5 rounded-xl border text-left text-xs font-medium transition-all ${
+                          primaryBottleneck === issue
+                            ? 'bg-blue-50 border-[#2563EB] text-[#2563EB] font-semibold'
                             : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
                         }`}
                       >
-                        <span>{b}</span>
-                        {primaryBottleneck === b && (
-                          <CheckCircle2 className="w-4 h-4 text-[#2563EB]" />
-                        )}
+                        {issue}
                       </button>
                     ))}
                   </div>
                 </div>
 
-                <div className="pt-3 flex items-center justify-between">
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2 font-['Plus_Jakarta_Sans']">
+                    Primary candidate discovery & sourcing channels:
+                  </label>
+                  <div className="grid grid-cols-2 gap-2">
+                    {[
+                      'LinkedIn & Job Portals',
+                      'Inbound Applications & Portal',
+                      'WhatsApp / SMS Direct Outreach',
+                      'Internal Talent Pool & Referrals'
+                    ].map((src) => (
+                      <button
+                        type="button"
+                        key={src}
+                        onClick={() => setOutreachChannel(src)}
+                        className={`p-2.5 rounded-xl border text-center text-xs font-medium transition-all ${
+                          outreachChannel === src
+                            ? 'bg-blue-50 border-[#2563EB] text-[#2563EB]'
+                            : 'bg-white border-slate-200 text-slate-700 hover:border-slate-300'
+                        }`}
+                      >
+                        {src}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 flex justify-between">
                   <button
                     type="button"
                     onClick={() => setStep(1)}
-                    className="text-xs text-slate-500 hover:text-slate-800"
+                    className="px-4 py-2 text-xs font-medium text-slate-500 hover:text-slate-800"
                   >
                     ← Back
                   </button>
@@ -211,70 +222,86 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
                     onClick={() => setStep(3)}
                     className="inline-flex items-center gap-2 px-6 py-2.5 text-xs font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-colors shadow-sm"
                   >
-                    <span>Next: Contact Details</span>
+                    <span>Next: Select Date & Time</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
             )}
 
-            {/* Step 3: Contact & Submission */}
+            {/* Step 3: Recruiter Details & Cal.com Placeholder */}
             {step === 3 && (
               <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Your Full Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="e.g. Sravani Rao"
-                    className="w-full px-3.5 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#2563EB] text-slate-900"
-                  />
+                <div className="space-y-3">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Your Full Name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. David Vance"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Work Email
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="david@staffingfirm.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Direct Phone / WhatsApp Number
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="+1 (555) 234-5678"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-[#2563EB]"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    Work Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="name@yourcompany.com"
-                    className="w-full px-3.5 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#2563EB] text-slate-900"
-                  />
+                {/* Calendar Schedule Simulation Block */}
+                <div className="bg-[#F6F9FC] border border-slate-200 rounded-xl p-4 space-y-2">
+                  <div className="flex items-center gap-2 text-xs font-mono font-bold text-slate-700">
+                    <Calendar className="w-3.5 h-3.5 text-[#2563EB]" />
+                    <span>Selected Session Window: Next Available Slot</span>
+                  </div>
+                  <div className="text-[11px] text-slate-500">
+                    Duration: 30 minutes · 1-on-1 with Uday Kiran · Direct screen-share workflow analysis
+                  </div>
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {['Tomorrow 10:00 AM', 'Tomorrow 2:30 PM', 'Thursday 11:00 AM'].map((time, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 bg-white border border-slate-200 rounded text-[11px] font-mono text-slate-700 shadow-2xs"
+                      >
+                        {time}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">
-                    WhatsApp Phone Number (for Audit confirmation)
-                  </label>
-                  <input
-                    type="tel"
-                    required
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    placeholder="+91 98765 43210"
-                    className="w-full px-3.5 py-2.5 text-xs bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:border-[#2563EB] text-slate-900"
-                  />
-                </div>
-
-                <div className="bg-slate-50 border border-slate-200 p-3 rounded-xl text-[11px] text-slate-500 space-y-1">
-                  <div className="font-semibold text-slate-700">Audit Profile Summary:</div>
-                  <div>• Model: {businessType}</div>
-                  <div>• Volume: {leadVolume}</div>
-                  <div>• Bottleneck: {primaryBottleneck}</div>
-                </div>
-
-                <div className="pt-2 flex items-center justify-between">
+                <div className="pt-3 flex justify-between items-center">
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="text-xs text-slate-500 hover:text-slate-800"
+                    className="px-4 py-2 text-xs font-medium text-slate-500 hover:text-slate-800"
                   >
                     ← Back
                   </button>
@@ -301,10 +328,10 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
                 Audit Scheduled Successfully
               </span>
               <h3 className="text-2xl font-extrabold text-[#111827] mt-1 font-['Plus_Jakarta_Sans']">
-                Thank You, {name || 'Coach'}!
+                Thank You, {name || 'Recruitment Leader'}!
               </h3>
               <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto mt-1">
-                We’ve received your operational profile. A calendar invite and pre-audit brief have been dispatched to <span className="font-semibold text-slate-800">{email}</span> and WhatsApp at <span className="font-semibold text-slate-800">{phone}</span>.
+                We’ve received your recruitment workflow profile. A calendar invite and pre-audit brief have been dispatched to <span className="font-semibold text-slate-800">{email}</span> and direct notification to <span className="font-semibold text-slate-800">{phone}</span>.
               </p>
             </div>
 
@@ -319,26 +346,30 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
                 <div>
                   <span className="font-semibold text-slate-900">Priority Engine Recommendation: </span>
                   <span className="text-[#2563EB] font-medium">
-                    {primaryBottleneck.includes('follow-up') ? 'Engine 01 (Lead Engine) + Engine 02 (Follow-Up Engine)' : 'Engine 05 (Onboarding Engine) + Engine 06 (Student Assistant)'}
+                    {primaryBottleneck.includes('follow-up') 
+                      ? 'Module 06 (Follow-Up Engine) + Module 07 (Interview Coordination Engine)' 
+                      : 'Module 03 (Resume Intelligence Engine) + Module 04 (Matching & Screening Engine)'}
                   </span>
                 </div>
                 <div>
-                  <span className="font-semibold text-slate-900">Target Time Savings: </span>
-                  <span className="text-emerald-600 font-semibold font-mono">15 - 25 hours per week</span>
+                  <span className="font-semibold text-slate-900">Operational Target: </span>
+                  <span className="text-emerald-600 font-semibold font-mono">Reduce manual resume triage & coordination latency</span>
                 </div>
                 <div>
-                  <span className="font-semibold text-slate-900">Lead Response Goal: </span>
-                  <span className="font-mono">Under 90 seconds (24/7 coverage)</span>
+                  <span className="font-semibold text-slate-900">Recruiter Capacity Reclaim: </span>
+                  <span className="text-slate-600">Shift administrative typing to high-touch candidate relationships</span>
                 </div>
               </div>
             </div>
 
-            <button
-              onClick={handleReset}
-              className="px-6 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"
-            >
-              Return to Website
-            </button>
+            <div className="pt-2">
+              <button
+                onClick={handleReset}
+                className="px-6 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"
+              >
+                Close & Return to Site
+              </button>
+            </div>
           </div>
         )}
       </div>

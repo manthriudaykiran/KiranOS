@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { 
-  Share2, 
-  Filter, 
-  Database, 
-  MessageSquare, 
   Briefcase, 
-  CreditCard, 
+  Search, 
+  FileText, 
+  Target, 
+  UserCheck, 
+  MessageSquare, 
+  Calendar, 
+  Share2, 
+  CheckCircle2, 
   Sparkles, 
-  GraduationCap, 
-  HelpCircle, 
-  RefreshCw, 
-  BarChart3,
+  Database, 
+  TrendingUp,
   Cpu,
   Layers,
   ArrowDown
@@ -26,276 +27,229 @@ interface LayerItem {
 }
 
 export const ArchitectureSection: React.FC = () => {
-  const [activeLayer, setActiveLayer] = useState<string>('qualification');
+  const [activeLayer, setActiveLayer] = useState<string>('matching');
 
   const layers: LayerItem[] = [
     {
-      id: 'traffic',
-      name: 'Traffic & Inbound Channels',
-      category: 'Top of Funnel',
-      icon: Share2,
-      tools: 'Meta Ads, Reels, YouTube, Google Ads, Organic Inbound, Website Opt-ins',
-      dataTransferred: 'Click IDs, UTM parameters, lead form inputs, direct messages'
+      id: 'intake',
+      name: 'Client Requirement & Job Intake',
+      category: 'Requirement Layer',
+      icon: Briefcase,
+      tools: 'Client Intake Briefs, Hiring Manager Calls, Role Criteria Engine',
+      dataTransferred: 'Skill hierarchy, required vs preferred experience, compensation bounds, priority'
     },
     {
-      id: 'capture',
-      name: 'Lead Capture Layer',
-      category: 'Real-Time Ingestion',
-      icon: Filter,
-      tools: 'Webhook Listeners, Form Integrations, Meta Graph API, WhatsApp Inbound',
-      dataTransferred: 'Instant lead normalization, deduplication, phone verification'
+      id: 'sourcing',
+      name: 'Multi-Source Candidate Ingestion',
+      category: 'Sourcing Layer',
+      icon: Search,
+      tools: 'Job Portals, Direct Inbound, In-House Talent Pool, Referrals',
+      dataTransferred: 'Candidate contact details, portfolio links, raw resumes, source attribution'
+    },
+    {
+      id: 'screening',
+      name: 'Resume Intelligence & Extraction',
+      category: 'Parsing Layer',
+      icon: FileText,
+      tools: 'Document Extraction Models, OCR Normalization, Skill Taxonomy Core',
+      dataTransferred: 'Normalized tenure, tech stack proficiency, project scale, education history'
+    },
+    {
+      id: 'matching',
+      name: 'Contextual Candidate Matching',
+      category: 'Alignment Layer',
+      icon: Target,
+      tools: 'Semantic Match Engine, Requirement Alignment Matrix',
+      dataTransferred: 'Match scorecards, must-have verification, gap indicators, talking points'
     },
     {
       id: 'qualification',
-      name: 'AI Qualification Layer',
-      category: 'Intent Engine',
-      icon: Cpu,
-      tools: 'Conversational LLM Reasoning (Claude/GPT), Dynamic Prompt Scoring Matrix',
-      dataTransferred: 'Budget qualification, timeline, current revenue tier, intent score'
+      name: 'Candidate Qualification & Pre-Screen',
+      category: 'Qualification Layer',
+      icon: UserCheck,
+      tools: 'Conversational Pre-Screening, Interactive Qualification Forms',
+      dataTransferred: 'Notice period, compensation expectations, work authorization, interview availability'
     },
     {
-      id: 'crm',
-      name: 'Central CRM & Database',
-      category: 'Single Source of Truth',
-      icon: Database,
-      tools: 'Supabase PostgreSQL, HubSpot/GoHighLevel API, Two-Way Sheet Sync',
-      dataTransferred: 'Unified contact ledger, conversation logs, deal stages, activity timeline'
-    },
-    {
-      id: 'nurture',
-      name: 'WhatsApp + Email + Voice AI',
-      category: 'Multi-Channel Outreach',
+      id: 'outreach',
+      name: 'Multi-Channel Outreach & Follow-Up',
+      category: 'Engagement Layer',
       icon: MessageSquare,
-      tools: 'WhatsApp Business API, Twilio Voice Agent, Transactional Email',
-      dataTransferred: 'Tailored follow-ups, workshop join links, appointment reminders'
+      tools: 'Approved WhatsApp Business API, Transactional Email, SMS Gateway',
+      dataTransferred: 'Personalized outreach, status updates, candidate replies, reminder cadences'
     },
     {
-      id: 'sales',
-      name: 'Sales Consultation',
-      category: 'High-Touch Closing',
-      icon: Briefcase,
-      tools: 'Google Calendar, Zoom API, Real-Time Meeting Summarizer',
-      dataTransferred: 'Meeting recording, objection taxonomy, action items, closing notes'
+      id: 'scheduling',
+      name: 'Interview Coordination & Reminders',
+      category: 'Coordination Layer',
+      icon: Calendar,
+      tools: 'Calendar Integrations, Multi-Timezone Buffer Manager, Automated Reminders',
+      dataTransferred: 'Confirmed interview slots, prep kits, meeting room dial-ins, reschedule handlers'
     },
     {
-      id: 'payment',
-      name: 'Payment Processing',
-      category: 'Transaction Gateway',
-      icon: CreditCard,
-      tools: 'Razorpay / Stripe Webhooks, Invoicing Engine',
-      dataTransferred: 'Transaction verification, billing metadata, subscription status'
+      id: 'submission',
+      name: 'Client Submission & Feedback',
+      category: 'Client Presentation',
+      icon: Share2,
+      tools: 'Formatted Submission Packet Generator, Client Feedback Loops',
+      dataTransferred: 'Standardized candidate dossiers, recruiter notes, client review status'
+    },
+    {
+      id: 'offer',
+      name: 'Offer Tracking & Placement',
+      category: 'Placement Layer',
+      icon: CheckCircle2,
+      tools: 'Offer Status Ledger, Notice Period Check-in Prompts',
+      dataTransferred: 'Offer details, candidate acceptance progress, start dates, counter-offer signals'
     },
     {
       id: 'onboarding',
-      name: 'Automated Onboarding',
-      category: 'Day-1 Activation',
+      name: 'Post-Placement Onboarding',
+      category: 'Onboarding Layer',
       icon: Sparkles,
-      tools: 'Contract E-Signature, LMS Account Generator, Drive Folder Provisioner',
-      dataTransferred: 'Access credentials, personalized onboarding checklist, welcome video'
+      tools: 'Compliance Checklists, Document Ingestion, Day-1 Hand-off Alerts',
+      dataTransferred: 'Background check verification, identity documents, first-day instructions'
     },
     {
-      id: 'delivery',
-      name: 'Delivery, Community & Course',
-      category: 'Core Transformation',
-      icon: GraduationCap,
-      tools: 'Skool, Circle, Teachable/Kajabi, Custom Student Portals',
-      dataTransferred: 'Lesson completion logs, assignment submissions, attendance records'
-    },
-    {
-      id: 'support',
-      name: '24/7 AI Support & Knowledge',
-      category: 'Curriculum Assistance',
-      icon: HelpCircle,
-      tools: 'Private RAG Vector Database, Embedded Community Bot',
-      dataTransferred: 'Grounded SOP answers, timestamped video citations, coach escalation flags'
-    },
-    {
-      id: 'retention',
-      name: 'Retention, Expansion & Upsell',
-      category: 'Client Lifetime Value',
-      icon: RefreshCw,
-      tools: 'Milestone Tracking Logic, Churn Early-Warning Predictor',
-      dataTransferred: 'Program renewal signals, mastermind invites, referral invitations'
+      id: 'ats',
+      name: 'Two-Way ATS & CRM Automation',
+      category: 'Data Persistence Layer',
+      icon: Database,
+      tools: 'ATS REST APIs, Recruitment CRM Connectors, PostgreSQL Ledger',
+      dataTransferred: 'Two-way candidate status sync, activity notes, stage transitions, audit logs'
     },
     {
       id: 'intelligence',
-      name: 'Cross-System Intelligence',
-      category: 'Executive Cockpit',
-      icon: BarChart3,
-      tools: 'Automated Telemetry Consolidator, Daily Executive Telegram/WhatsApp Brief',
-      dataTransferred: 'CAC vs LTV, funnel conversion rates, coach capacity metrics'
+      name: 'Recruitment Intelligence & Reporting',
+      category: 'Executive Visibility',
+      icon: TrendingUp,
+      tools: 'Cross-System Analytics Bus, Daily Management Briefing Engine',
+      dataTransferred: 'Open requirement velocity, submission ratios, interviewer latency, bottleneck alerts'
     }
   ];
 
-  const currentLayer = layers.find((l) => l.id === activeLayer) || layers[2];
+  const currentLayer = layers.find((l) => l.id === activeLayer) || layers[3];
 
   return (
-    <section id="architecture" className="py-24 md:py-32 bg-[#071426] text-white relative overflow-hidden">
-      {/* Subtle ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[550px] bg-[#2563EB]/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-24 md:py-32 bg-[#071426] text-white relative overflow-hidden border-t border-slate-800">
+      <div className="absolute top-1/4 left-1/3 w-[800px] h-[500px] bg-[#2563EB]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <span className="text-xs font-semibold tracking-wider uppercase text-[#22D3EE] font-['Plus_Jakarta_Sans']">
-            Technical Architecture
+            Systems Architecture
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white font-['Plus_Jakarta_Sans'] leading-tight">
-            System Architecture Blueprint
+            The Complete Recruitment Operating Architecture
           </h2>
           <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-            How data moves seamlessly from the first social interaction through sales, onboarding, delivery, and automated retention—with a central AI intelligence layer coordinating every event.
+            Every layer in your staffing workflow is intentionally connected into one data and automation fabric—eliminating isolated tools, lost candidate context, and manual clerical repetition.
           </p>
         </div>
 
-        {/* The Central AI Intelligence Spine Callout */}
-        <div className="mb-10 bg-gradient-to-r from-[#2563EB]/20 via-[#22D3EE]/20 to-[#2563EB]/20 border border-[#22D3EE]/40 rounded-xl p-4 sm:p-5 flex items-center justify-between flex-wrap gap-4">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#22D3EE]/20 flex items-center justify-center text-[#22D3EE]">
-              <Cpu className="w-4 h-4" />
-            </div>
-            <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-[#22D3EE] font-bold">
-                Centralized AI Intelligence Layer
-              </span>
-              <p className="text-xs text-slate-300">
-                Monitors data transitions between all layers in real-time, enforcing business logic and alerting when friction occurs.
-              </p>
-            </div>
-          </div>
-          <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/60 px-2.5 py-1 rounded border border-emerald-800">
-            Active Event Bus
-          </span>
-        </div>
-
-        {/* Interactive Architecture Flow View */}
+        {/* Blueprint Layout: Vertical Flow on Left, Active Layer Deep Dive on Right */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Interactive Layer Chain */}
-          <div className="lg:col-span-7 space-y-2">
-            {layers.map((layer, idx) => {
-              const Icon = layer.icon;
-              const isSelected = layer.id === activeLayer;
+          {/* Left Column: Interactive 12-Layer Stack */}
+          <div className="lg:col-span-6 space-y-2">
+            <div className="text-xs font-mono font-bold text-slate-400 mb-3 px-1 flex items-center justify-between">
+              <span>RECRUITMENT LIFECYCLE LAYERS</span>
+              <span className="text-[#22D3EE]">CLICK LAYER TO INSPECT DATA</span>
+            </div>
 
-              return (
-                <React.Fragment key={layer.id}>
+            <div className="space-y-1.5">
+              {layers.map((layer, index) => {
+                const Icon = layer.icon;
+                const isActive = layer.id === activeLayer;
+                return (
                   <button
+                    key={layer.id}
                     onClick={() => setActiveLayer(layer.id)}
-                    className={`w-full text-left p-3.5 sm:p-4 rounded-xl border transition-all duration-200 flex items-center justify-between ${
-                      isSelected
-                        ? 'bg-[#2563EB] border-[#22D3EE] shadow-lg shadow-blue-600/30 text-white'
-                        : 'bg-slate-900/80 border-slate-800 hover:border-slate-700 hover:bg-slate-800/80 text-slate-300'
+                    className={`w-full p-3 rounded-xl border text-left transition-all duration-200 flex items-center justify-between gap-3 ${
+                      isActive
+                        ? 'bg-[#2563EB] border-[#22D3EE] text-white shadow-md shadow-blue-600/30'
+                        : 'bg-slate-900/80 border-slate-800 text-slate-300 hover:bg-slate-800/80 hover:border-slate-700'
                     }`}
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <div
-                        className={`w-9 h-9 rounded-lg flex items-center justify-center shrink-0 ${
-                          isSelected ? 'bg-white/20 text-white' : 'bg-slate-800 text-[#22D3EE]'
-                        }`}
-                      >
-                        <Icon className="w-4 h-4" />
+                      <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
+                        isActive ? 'bg-white/20 text-white' : 'bg-slate-800 text-[#22D3EE]'
+                      }`}>
+                        <Icon className="w-3.5 h-3.5" />
                       </div>
                       <div className="min-w-0">
-                        <div className="flex items-center gap-2">
-                          <span
-                            className={`text-[10px] font-mono uppercase ${
-                              isSelected ? 'text-white/80' : 'text-slate-400'
-                            }`}
-                          >
-                            Layer {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
-                          </span>
-                          <span className="text-[10px] text-slate-400">·</span>
-                          <span
-                            className={`text-[10px] ${
-                              isSelected ? 'text-white/90' : 'text-[#22D3EE]'
-                            }`}
-                          >
-                            {layer.category}
-                          </span>
-                        </div>
-                        <h4 className="text-sm font-bold truncate font-['Plus_Jakarta_Sans']">
+                        <span className={`text-[10px] font-mono block ${isActive ? 'text-white/80' : 'text-slate-400'}`}>
+                          0{index + 1} · {layer.category}
+                        </span>
+                        <h4 className="text-xs sm:text-sm font-bold truncate font-['Plus_Jakarta_Sans']">
                           {layer.name}
                         </h4>
                       </div>
                     </div>
 
-                    <span
-                      className={`text-xs font-semibold px-2 py-1 rounded shrink-0 hidden sm:inline-block ${
-                        isSelected ? 'bg-white/20 text-white' : 'text-slate-400'
-                      }`}
-                    >
-                      {isSelected ? 'Inspecting' : 'Inspect →'}
-                    </span>
+                    <span className={`w-2 h-2 rounded-full shrink-0 ${isActive ? 'bg-[#22D3EE]' : 'bg-slate-700'}`} />
                   </button>
-
-                  {idx < layers.length - 1 && (
-                    <div className="flex justify-center my-0.5">
-                      <div className="w-[1.5px] h-3 bg-slate-800 flex items-center justify-center">
-                        <div className="w-1 h-1 rounded-full bg-[#22D3EE]/50" />
-                      </div>
-                    </div>
-                  )}
-                </React.Fragment>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
 
-          {/* Right Column: Active Layer Deep Inspection Card (Sticky) */}
-          <div className="lg:col-span-5 sticky top-28 space-y-6">
-            <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-7 shadow-xl">
-              <div className="flex items-center justify-between pb-4 border-b border-slate-800">
-                <span className="text-xs font-mono uppercase tracking-wider text-[#22D3EE]">
-                  Node Telemetry Inspector
-                </span>
-                <span className="text-[11px] text-slate-400 bg-slate-800 px-2 py-0.5 rounded">
-                  {currentLayer.category}
-                </span>
+          {/* Right Column: Deep-Dive Protocol Inspector */}
+          <div className="lg:col-span-6 sticky top-24 bg-slate-900/90 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-2xl space-y-6">
+            <div className="pb-4 border-b border-slate-800 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-[#2563EB]/20 border border-[#2563EB]/40 flex items-center justify-center text-[#22D3EE]">
+                  {React.createElement(currentLayer.icon, { className: 'w-5 h-5' })}
+                </div>
+                <div>
+                  <span className="text-xs font-mono text-[#22D3EE] font-bold">
+                    LAYER TELEMETRY INSPECTOR
+                  </span>
+                  <h3 className="text-xl font-bold text-white font-['Plus_Jakarta_Sans']">
+                    {currentLayer.name}
+                  </h3>
+                </div>
               </div>
+              <span className="text-xs font-mono uppercase bg-emerald-500/10 text-emerald-400 px-2.5 py-1 rounded border border-emerald-500/30">
+                Connected
+              </span>
+            </div>
 
-              <div className="mt-5 space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-xl bg-[#2563EB]/20 border border-[#2563EB]/40 flex items-center justify-center text-[#22D3EE]">
-                    <currentLayer.icon className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white font-['Plus_Jakarta_Sans']">
-                      {currentLayer.name}
-                    </h3>
-                    <p className="text-xs text-slate-400">Layer Specification</p>
-                  </div>
-                </div>
+            {/* Architecture Role */}
+            <div className="space-y-1.5">
+              <span className="text-xs font-mono uppercase tracking-wider text-slate-400">
+                System Role & Boundary
+              </span>
+              <p className="text-xs sm:text-sm text-slate-200 leading-relaxed bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/80">
+                Operates autonomously within defined validation guardrails, routing candidate and requirement records to the next recruiting stage while keeping recruiters in control of judgment.
+              </p>
+            </div>
 
-                <div>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-1.5">
-                    Integrated Tooling & Protocols:
-                  </span>
-                  <div className="bg-[#071426] p-3 rounded-lg border border-slate-800 text-xs text-slate-200 font-mono">
-                    {currentLayer.tools}
-                  </div>
-                </div>
-
-                <div>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 block mb-1.5">
-                    Data Payload Passed to Next Engine:
-                  </span>
-                  <div className="bg-[#071426] p-3 rounded-lg border border-slate-800 text-xs text-emerald-300 font-mono">
-                    {currentLayer.dataTransferred}
-                  </div>
-                </div>
-
-                <div className="pt-2 text-xs text-slate-400 leading-relaxed">
-                  Every layer maintains transactional logs. If an external API or webhook fails, intelligent retry queues and coach alerts prevent lost leads or delayed onboarding.
-                </div>
+            {/* Systems & Protocols Involved */}
+            <div className="space-y-1.5">
+              <span className="text-xs font-mono uppercase tracking-wider text-[#22D3EE]">
+                Supported Tools & Integrations
+              </span>
+              <div className="bg-slate-950/60 p-3.5 rounded-xl border border-slate-800/80 font-mono text-xs text-slate-300">
+                {currentLayer.tools}
               </div>
             </div>
 
-            {/* Quick architectural assurance */}
-            <div className="bg-[#0b1b32] border border-slate-800 rounded-xl p-4 text-xs text-slate-300 space-y-2">
-              <span className="font-semibold text-white block font-['Plus_Jakarta_Sans']">
-                Zero Fragile Zapier Spaghetti
+            {/* Data Payload Moving Through Layer */}
+            <div className="space-y-1.5">
+              <span className="text-xs font-mono uppercase tracking-wider text-emerald-400">
+                Payload Synchronized Through System Bus
               </span>
-              <p className="text-slate-400">
-                Unlike fragile point-to-point triggers that break when a tool updates, KiranOS utilizes decoupled webhooks, centralized database state, and idempotent execution.
-              </p>
+              <div className="bg-slate-950/80 p-3.5 rounded-xl border border-slate-800/80 font-mono text-xs text-emerald-300 flex items-start gap-2">
+                <span className="text-[#22D3EE] font-bold shrink-0">$ payload:</span>
+                <span className="leading-relaxed">{currentLayer.dataTransferred}</span>
+              </div>
+            </div>
+
+            {/* Data Hygiene Guarantee */}
+            <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400 font-mono">
+              <span>Recruiter Judgment: Required</span>
+              <span>Clerical Data Entry: 0%</span>
             </div>
           </div>
         </div>

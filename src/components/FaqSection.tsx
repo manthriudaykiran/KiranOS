@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FAQ_DATA } from '../data/systemsData';
-import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 
 interface FaqSectionProps {
   onOpenAudit: () => void;
@@ -25,7 +25,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenAudit }) => {
             Frequently Asked Questions
           </h2>
           <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl mx-auto">
-            Everything you need to know about how we engineer, deploy, and support AI Operating Systems for coaches and online businesses.
+            Everything you need to know about how we design, implement, and support AI Recruitment Operating Systems for IT staffing and recruitment firms.
           </p>
         </div>
 
@@ -70,7 +70,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({ onOpenAudit }) => {
         {/* Bottom prompt for unaddressed questions */}
         <div className="mt-12 text-center bg-white border border-[#E2E8F0] rounded-2xl p-6 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-left text-xs sm:text-sm text-slate-600">
-            <span className="font-semibold text-slate-900">Have a specific technical or workflow question?</span> We address unique systems during the AI Growth Audit.
+            <span className="font-semibold text-slate-900">Have a specific ATS or recruitment workflow question?</span> We review your current technology stack during the workflow audit.
           </div>
           <button
             onClick={onOpenAudit}
