@@ -46,7 +46,7 @@ export const MethodologySection: React.FC<MethodologySectionProps> = ({ onOpenAu
   ];
 
   return (
-    <section id="methodology" className="py-24 md:py-32 bg-[#F6F9FC] text-[#111827]">
+    <section id="how-it-works" className="scroll-mt-24 py-24 md:py-32 bg-[#F6F9FC] text-[#111827]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">

@@ -41,11 +41,18 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit })
         <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
           <button
             onClick={onOpenAudit}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 text-base font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-all shadow-xl shadow-blue-600/30 hover:shadow-2xl hover:shadow-blue-600/40 active:scale-[0.98]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 text-base font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-xl shadow-blue-600/30 hover:shadow-2xl hover:shadow-emerald-900/30 active:scale-[0.98] cursor-pointer"
           >
-            <span>Book My AI Growth Audit</span>
+            <span>Book a Free AI Strategy Call</span>
             <ArrowRight className="w-5 h-5" />
           </button>
+
+          <a
+            href="#case-studies"
+            className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-slate-900/80 hover:bg-slate-800 rounded-xl border border-slate-700/80 transition-all cursor-pointer text-center"
+          >
+            See Our Case Studies
+          </a>
         </div>
 
         {/* Microcopy with typographic dots */}

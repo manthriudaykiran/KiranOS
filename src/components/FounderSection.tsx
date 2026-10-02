@@ -7,7 +7,7 @@ interface FounderSectionProps {
 
 export const FounderSection: React.FC<FounderSectionProps> = ({ onOpenAudit }) => {
   return (
-    <section id="founder" className="py-24 md:py-32 bg-[#F6F9FC] text-[#111827] border-t border-slate-200/80">
+    <section id="about" className="scroll-mt-24 py-24 md:py-32 bg-[#F6F9FC] text-[#111827] border-t border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto bg-white border border-[#E2E8F0] rounded-3xl p-8 sm:p-12 lg:p-14 shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">

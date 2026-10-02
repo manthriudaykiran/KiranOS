@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Layers } from 'lucide-react';
+import { Menu, X, Layers } from 'lucide-react';
 
 interface NavigationProps {
   onOpenAudit: () => void;
@@ -17,22 +17,19 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenAudit }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Exact navigation modules matching the screenshot
   const navLinks = [
-    { label: 'Operating System', href: '#operating-system' },
-    { label: 'Systems', href: '#systems' },
-    { label: 'How It Works', href: '#methodology' },
-    { label: 'Architecture', href: '#architecture' },
-    { label: 'Audit', href: '#audit' },
+    { label: 'Services', href: '#services' },
+    { label: 'How It Works', href: '#how-it-works' },
     { label: 'Case Studies', href: '#case-studies' },
-    { label: 'About', href: '#founder' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'About', href: '#about' },
   ];
 
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-[#071426]/95 backdrop-blur-md border-b border-slate-800/80 py-3 shadow-md'
+          ? 'bg-[#071426]/95 backdrop-blur-md border-b border-slate-800/80 py-3.5 shadow-md'
           : 'bg-[#071426] border-b border-slate-800/40 py-4'
       }`}
     >
@@ -54,37 +51,36 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenAudit }) => {
             </span>
           </a>
 
-          {/* Zone 2: Navigation Links (Clean text with hover state) */}
-          <nav className="hidden lg:flex items-center gap-7">
+          {/* Zone 2: Navigation Links - Exact 4 modules matching screenshot */}
+          <nav className="hidden md:flex items-center gap-8 lg:gap-10">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative py-1 hover:underline underline-offset-4 decoration-[#22D3EE]"
+                className="text-sm font-medium text-slate-300 hover:text-white transition-colors relative py-1 hover:underline underline-offset-8 decoration-[#22D3EE]"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          {/* Zone 3: Primary Action */}
+          {/* Zone 3: Primary Action - Exactly "Book a Free Call" with gradient button from screenshot */}
           <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={onOpenAudit}
-              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-all shadow-sm hover:shadow-md hover:shadow-blue-900/30 whitespace-nowrap active:scale-[0.98]"
+              className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-sm hover:shadow-md hover:shadow-emerald-900/20 whitespace-nowrap active:scale-[0.98] cursor-pointer"
             >
-              <span>Book My AI Growth Audit</span>
-              <ArrowRight className="w-4 h-4" />
+              Book a Free Call
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Toggle Button */}
           <div className="flex sm:hidden items-center gap-2">
             <button
               onClick={onOpenAudit}
-              className="px-3 py-1.5 text-xs font-semibold text-white bg-[#2563EB] rounded-lg"
+              className="px-3.5 py-1.5 text-xs font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] rounded-lg"
             >
-              Audit
+              Book Call
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -99,14 +95,14 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenAudit }) => {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#071426] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
+        <div className="md:hidden bg-[#071426] border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
           <div className="flex flex-col space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-sm font-medium text-slate-300 hover:text-white py-2 px-3 rounded-lg hover:bg-slate-800/60"
+                className="text-sm font-medium text-slate-300 hover:text-white py-2.5 px-3 rounded-lg hover:bg-slate-800/60"
               >
                 {link.label}
               </a>
@@ -118,10 +114,9 @@ export const Navigation: React.FC<NavigationProps> = ({ onOpenAudit }) => {
                 setMobileMenuOpen(false);
                 onOpenAudit();
               }}
-              className="w-full flex items-center justify-center gap-2 py-3 text-sm font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl"
+              className="w-full flex items-center justify-center py-3 text-sm font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl shadow-sm"
             >
-              <span>Book My AI Growth Audit</span>
-              <ArrowRight className="w-4 h-4" />
+              Book a Free Call
             </button>
           </div>
         </div>

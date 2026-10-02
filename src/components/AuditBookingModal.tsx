@@ -63,7 +63,7 @@ export const AuditBookingModal: React.FC<AuditBookingModalProps> = ({ isOpen, on
                 <span>30-Minute Business-First Session</span>
               </div>
               <h3 className="text-2xl font-extrabold text-[#111827] font-['Plus_Jakarta_Sans']">
-                Book Your AI Growth & Operations Audit
+                Book Your Free AI Strategy Call
               </h3>
               <p className="text-xs sm:text-sm text-slate-500">
                 Answer 3 quick questions to help us prepare your custom AI Opportunity Map before the call.

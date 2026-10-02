@@ -5,23 +5,23 @@ export const TrustProofBar: React.FC = () => {
   const trustPoints = [
     {
       icon: Award,
-      title: '10+ Years Software Experience',
-      subtitle: 'Enterprise-grade architecture & clean systems engineering'
+      title: 'Tested on 480K+ Learners',
+      subtitle: 'Battle-tested under real production traffic before client deployment'
     },
     {
       icon: Cpu,
-      title: 'AI Agents + Automation + Custom Apps',
-      subtitle: 'From simple webhook routing to full-stack bespoke portals'
+      title: 'At Half the Traditional Cost',
+      subtitle: 'Standardized productized modules eliminate custom agency bloat'
     },
     {
       icon: Wrench,
-      title: 'End-to-End Implementation',
-      subtitle: 'We design, connect, deploy, and continuously operate'
+      title: 'Voice, Content & Sales Workflows',
+      subtitle: 'Pre-engineered engines ready to plug into your coaching model'
     },
     {
       icon: Globe2,
-      title: 'India-Rooted · Global Delivery',
-      subtitle: 'Deep expertise in Telugu, Indian & international markets'
+      title: '10+ Years Software Engineering',
+      subtitle: 'Engineered by Uday Kiran for high reliability and zero downtime'
     }
   ];
 
