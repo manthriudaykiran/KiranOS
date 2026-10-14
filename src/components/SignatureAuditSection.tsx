@@ -13,9 +13,10 @@ import {
 
 interface SignatureAuditSectionProps {
   onOpenAudit: () => void;
+  onOpenScorecard?: () => void;
 }
 
-export const SignatureAuditSection: React.FC<SignatureAuditSectionProps> = ({ onOpenAudit }) => {
+export const SignatureAuditSection: React.FC<SignatureAuditSectionProps> = ({ onOpenAudit, onOpenScorecard }) => {
   const [filterPriority, setFilterPriority] = useState<string>('all');
 
   const auditStages = [
@@ -229,13 +230,24 @@ export const SignatureAuditSection: React.FC<SignatureAuditSectionProps> = ({ on
 
         {/* Call to Action Bar */}
         <div className="text-center space-y-3">
-          <button
-            onClick={onOpenAudit}
-            className="inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-md active:scale-[0.98]"
-          >
-            <span>Book My Recruitment Workflow Audit</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+            {onOpenScorecard && (
+              <button
+                onClick={onOpenScorecard}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-all shadow-sm"
+              >
+                <span>Take Free 10-Minute Scorecard First</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            )}
+            <button
+              onClick={onOpenAudit}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-md active:scale-[0.98]"
+            >
+              <span>Book My Recruitment Workflow Audit</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
           <div className="flex items-center justify-center gap-3 text-xs text-slate-400">
             <span>30 minutes</span>
             <span>·</span>

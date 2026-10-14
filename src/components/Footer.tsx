@@ -1,11 +1,17 @@
 import React from 'react';
-import { Layers, ArrowUpRight, Mail, MapPin, Globe } from 'lucide-react';
+import { Layers, ArrowUpRight, Mail, MapPin, Globe, Sparkles } from 'lucide-react';
 
 interface FooterProps {
   onOpenAudit: () => void;
+  onOpenScorecard?: () => void;
+  onOpenImplementationGuide?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
+export const Footer: React.FC<FooterProps> = ({ 
+  onOpenAudit, 
+  onOpenScorecard, 
+  onOpenImplementationGuide 
+}) => {
   return (
     <footer className="bg-[#050e1a] text-slate-400 border-t border-slate-800/80 pt-16 pb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -130,12 +136,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
           {/* Direct Action Column */}
           <div className="space-y-3">
             <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-white">
-              Recruitment Audit
+              Free Assessment & Audit
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Find the repetitive workflows, communication gaps and disconnected processes slowing down your recruitment operation.
+              Find where your agency loses recruiter hours and uncover high-impact automation opportunities.
             </p>
-            <div className="pt-2">
+            <div className="pt-1 space-y-2">
+              {onOpenScorecard && (
+                <button
+                  onClick={onOpenScorecard}
+                  className="w-full py-2 px-3 text-xs font-semibold text-[#22D3EE] bg-cyan-950/80 hover:bg-cyan-900/80 border border-cyan-500/40 rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm"
+                >
+                  <Sparkles className="w-3.5 h-3.5" />
+                  <span>Take Free 10-Min Scorecard</span>
+                </button>
+              )}
               <button
                 onClick={onOpenAudit}
                 className="w-full py-2.5 px-4 text-xs font-semibold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-sm"
@@ -143,9 +158,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenAudit }) => {
                 <span>Book Workflow Audit</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
+              {onOpenImplementationGuide && (
+                <button
+                  onClick={onOpenImplementationGuide}
+                  className="w-full text-center text-[11px] font-medium text-slate-400 hover:text-white transition-colors block pt-1"
+                >
+                  View Paid Implementation Guide →
+                </button>
+              )}
             </div>
-            <div className="text-[11px] text-slate-500 font-mono pt-1">
-              30 mins · No pitch deck
+            <div className="text-[11px] text-slate-500 font-mono pt-0.5">
+              15 questions · Self-reported diagnostic
             </div>
           </div>
         </div>

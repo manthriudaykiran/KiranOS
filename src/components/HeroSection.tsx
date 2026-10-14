@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Compass } from 'lucide-react';
+import { ArrowRight, Compass, Sparkles } from 'lucide-react';
 import { HeroWorkflowVisualizer } from './HeroWorkflowVisualizer';
 
 interface HeroSectionProps {
   onOpenAudit: () => void;
+  onOpenScorecard: () => void;
 }
 
 const PHRASES = [
@@ -14,7 +15,7 @@ const PHRASES = [
   'From Intake to Placement'
 ];
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit }) => {
+export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit, onOpenScorecard }) => {
   const [phraseIndex, setPhraseIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -80,6 +81,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit }) => {
             <span>AI Recruitment Operating Systems for IT Staffing & Recruitment Firms</span>
           </div>
 
+          {/* Featured Free Lead Magnet Assessment Callout */}
+          <div>
+            <button 
+              type="button"
+              onClick={onOpenScorecard}
+              className="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-gradient-to-r from-[#2563EB]/20 via-[#22D3EE]/20 to-[#059669]/20 border border-cyan-400/40 hover:border-cyan-300 transition-all cursor-pointer shadow-lg shadow-cyan-950/40 group text-left sm:text-center"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#22D3EE] animate-ping" />
+              <span className="text-xs sm:text-sm font-semibold text-white group-hover:text-[#22D3EE] transition-colors">
+                Free Assessment: How efficient is your recruitment operation? (15 Questions · Score /100)
+              </span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#22D3EE] group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
           {/* Main Headline */}
           <div className="space-y-1 sm:space-y-2">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white font-['Plus_Jakarta_Sans'] leading-[1.08]">
@@ -109,31 +125,36 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenAudit }) => {
             We design and implement connected AI systems that reduce repetitive recruiting work across sourcing, screening, candidate follow-up, interviews, ATS updates, placement and onboarding.
           </p>
 
-          {/* Action CTAs */}
-          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {/* Action CTAs - Featuring the Free Assessment Lead Magnet & Audit Booking */}
+          <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+            <button
+              onClick={onOpenScorecard}
+              className="w-full sm:w-auto px-8 py-4 text-base font-bold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-lg shadow-blue-900/40 hover:shadow-xl hover:shadow-emerald-900/30 active:scale-[0.98] cursor-pointer flex items-center justify-center gap-2.5"
+            >
+              <span>Start Free Assessment (Get Score /100)</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
             <button
               onClick={onOpenAudit}
-              className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-lg shadow-blue-900/30 hover:shadow-xl hover:shadow-emerald-900/20 active:scale-[0.98] cursor-pointer"
+              className="w-full sm:w-auto px-7 py-4 text-base font-semibold text-slate-200 bg-slate-900/90 hover:bg-slate-800 hover:text-white rounded-xl border border-slate-700/80 transition-all cursor-pointer"
             >
               Book My Recruitment Workflow Audit
             </button>
-
-            <a
-              href="#case-studies"
-              className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-slate-900/80 hover:bg-slate-800 rounded-xl border border-slate-700/80 transition-all cursor-pointer"
-            >
-              See Architecture & Prototypes
-            </a>
           </div>
 
-          {/* Microcopy & Secondary description */}
-          <div className="pt-2 space-y-1.5">
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs sm:text-sm text-slate-400 font-medium">
-              <span>30 minutes</span>
+          {/* Sub-links & Microcopy */}
+          <div className="pt-2 space-y-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-slate-400">
+              <a href="#case-studies" className="hover:text-white transition-colors underline-offset-4 hover:underline">
+                See Architecture & Prototypes →
+              </a>
               <span className="text-slate-600">·</span>
-              <span>No pitch deck</span>
+              <span>15 questions</span>
               <span className="text-slate-600">·</span>
-              <span>Leave with a clear workflow map</span>
+              <span>~5-10 minutes</span>
+              <span className="text-slate-600">·</span>
+              <span className="text-emerald-400 font-medium">100% Free · No Work Email Required to View Score</span>
             </div>
             <p className="text-xs text-slate-500 font-normal">
               One connected operating system for recruiters, candidates, clients, data and workflows.

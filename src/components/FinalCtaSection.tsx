@@ -1,11 +1,12 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 
 interface FinalCtaSectionProps {
   onOpenAudit: () => void;
+  onOpenScorecard?: () => void;
 }
 
-export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit }) => {
+export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit, onOpenScorecard }) => {
   return (
     <section className="py-24 md:py-32 bg-[#071426] text-white relative overflow-hidden">
       {/* Background ambient lighting */}
@@ -38,10 +39,20 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit })
           Find the repetitive workflows, communication gaps and disconnected processes slowing down your recruitment operation.
         </p>
 
-        <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3.5">
+          {onOpenScorecard && (
+            <button
+              onClick={onOpenScorecard}
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-bold text-white bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-400/50 hover:border-cyan-300 rounded-xl transition-all shadow-lg shadow-cyan-950/40 cursor-pointer"
+            >
+              <Sparkles className="w-4 h-4 text-[#22D3EE]" />
+              <span>Take Free 10-Min Scorecard</span>
+            </button>
+          )}
+
           <button
             onClick={onOpenAudit}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 text-base font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-xl shadow-blue-600/30 hover:shadow-2xl hover:shadow-emerald-900/30 active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 text-base font-semibold text-white bg-gradient-to-r from-[#2563EB] to-[#059669] hover:from-[#1D4ED8] hover:to-[#047857] rounded-xl transition-all shadow-xl shadow-blue-600/30 hover:shadow-2xl hover:shadow-emerald-900/30 active:scale-[0.98] cursor-pointer"
           >
             <span>Book My Recruitment Workflow Audit</span>
             <ArrowRight className="w-5 h-5" />
@@ -49,7 +60,7 @@ export const FinalCtaSection: React.FC<FinalCtaSectionProps> = ({ onOpenAudit })
 
           <a
             href="#case-studies"
-            className="w-full sm:w-auto px-8 py-4 text-base font-semibold text-white bg-slate-900/80 hover:bg-slate-800 rounded-xl border border-slate-700/80 transition-all cursor-pointer text-center"
+            className="w-full sm:w-auto px-7 py-4 text-sm font-semibold text-slate-300 bg-slate-900/80 hover:bg-slate-800 hover:text-white rounded-xl border border-slate-700/80 transition-all cursor-pointer text-center"
           >
             See Our Prototypes
           </a>
